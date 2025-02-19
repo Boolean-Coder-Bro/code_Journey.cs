@@ -1,0 +1,119 @@
+using System.Runtime.InteropServices;
+
+namespace Brauerei_salesKalkulation
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /* Globale Variablen
+             * float sale5  = 0.05f;
+             * float sale7  = 0.07f;
+             * float sale10 = 0.10f;
+             */ 
+            float cost_Product = 23.09f;
+            int   mengeProduct;
+            float costPfand_Product = 1.60f;
+            
+           
+            Console.WriteLine(@$"
+            | Wilkommen bei Bellheimer
+            | Ihrem Lokalen Braumeister
+             --------------------------
+            | Aktuell haben wir unsere Frühjahrsaktion bei der sie kräftig sparen können
+            | Unsere Rabatte  beziehen sich auf Ganze Kästen 
+            |   bei Abnahme von mindestens 10  Kästen    5 % Rabatt
+            |   bei Abnahme von mindestens 50  Kästen    7 % Rabatt
+            |   bei Abnahme von mindestens 100 Kästen   10 % Rabatt.
+            "); // Hübscher Output
+
+            Console.Write(@"
+            | Ein Kasten entspricht 20*0,5l Flaschen-Bier.
+            | Geben sie Ihre gewünschte Anzahl an Bier an:");     // Info für Kunden
+            
+            string mengeProduct_str = Console.ReadLine();
+            mengeProduct = int.Parse(mengeProduct_str);
+
+            // Es folgt nun der Syntax zum Fallorientieren
+            /* if (mengeProduct >= 10) Dies führt zu fehler da erste bedinung immer zuerst eintrifft,
+             * somit  funktioniert Code nicht richtig ein Bugg.
+             * Deshalb verwenden wir den Vergleichsoperator "&&" also "and" (in .py) oder
+             * wir weisen der Variablen unserer Bedinung nun einen Zweiten Wert bzw zweite möglichkeit zu <=19 
+             * d.H ALle Zahlen von 10 bis 19 sind im Sale bereihc 5% etc.
+             */
+
+            if (mengeProduct >= 10 && mengeProduct <= 19)
+            {
+                float sale = 0.05f;
+
+                float cost_AllProduct = cost_Product * mengeProduct;
+                float ersparniss = (cost_Product * mengeProduct) * sale;
+                float cost_AllPfand = costPfand_Product * mengeProduct;
+                float cost_EndProduct = cost_AllProduct - ersparniss + cost_AllPfand;
+                Console.WriteLine(@$"
+                |Sie haben einen Rabatt von  :{sale} %
+                |Ihre Ersparniss beträgt     :{ersparniss}€
+                |inklusvie Pfand sind wir bei:{cost_AllPfand}€
+                |Kosten aller Kästen         :{cost_AllProduct}€
+                 ----------------------------------------------
+                |Die übrigen Kosten betragen :{cost_EndProduct}€
+                
+                ");
+            }
+            else if (mengeProduct >= 20 && mengeProduct <= 99)
+            {
+                float sale = 0.07f;
+                
+
+                float cost_AllProduct = cost_Product * mengeProduct;
+                float ersparniss = (cost_Product * mengeProduct) * sale;
+                float cost_AllPfand = costPfand_Product * mengeProduct;
+                float cost_EndProduct = cost_AllProduct - ersparniss + cost_AllPfand;
+                Console.WriteLine(@$"
+                |Sie haben einen Rabatt von  :{sale} %
+                |Ihre Ersparniss beträgt     :{ersparniss}€
+                |inklusvie Pfand sind wir bei:{cost_AllPfand}€
+                |Kosten aller Kästen         :{cost_AllProduct}€
+                 ----------------------------------------------
+                |Die übrigen Kosten betragen :{cost_EndProduct}€
+                
+                ");
+            }
+            else if (mengeProduct >= 100)
+            {
+                float sale = 0.10f;
+
+
+                float cost_AllProduct = cost_Product * mengeProduct;
+                float ersparniss = (cost_Product * mengeProduct) * sale;
+                float cost_AllPfand = costPfand_Product * mengeProduct;
+                float cost_EndProduct = cost_AllProduct - ersparniss + cost_AllPfand;
+                Console.WriteLine(@$"
+                |Sie haben einen Rabatt von  :{sale} %
+                |Ihre Ersparniss beträgt     :{ersparniss}€
+                |Der Pfand beträgt           :{cost_AllPfand}€
+                |Kosten aller Kästen         :{cost_AllProduct}€
+                 ----------------------------------------------
+                |Die übrigen Kosten betragen :{cost_EndProduct}€|
+                
+                ");    
+            }
+            else 
+            {
+
+                float cost_AllProduct = cost_Product * mengeProduct;
+                float cost_AllPfand   = costPfand_Product * mengeProduct;
+                float cost_EndProduct = cost_AllProduct + cost_AllPfand;
+                Console.WriteLine(@$"
+                |Sie haben keinen Rabatt     :---
+                |Sie haben Keine Ersparniss  :---
+                |Der Pfand beträgt           :{cost_AllPfand}€
+                |Kosten aller Kästen         :{cost_AllProduct}€
+                 ----------------------------------------------
+                |Die übrigen Kosten betragen :{cost_EndProduct}€|
+                ");
+            }
+            Console.WriteLine("Bestellung versendet.");
+        }
+    }
+}
