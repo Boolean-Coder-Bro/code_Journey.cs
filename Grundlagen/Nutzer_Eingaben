@@ -1,1 +1,40 @@
+using System.Xml;
+
+namespace nutzer_Eingaben
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int alter;
+
+            Console.Write("Bitte geben Sie Ihren Namen ein: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Bitte geben sie Ihr Alter an: ");
+            string alter_str = Console.ReadLine();
+            alter = int.Parse(alter_str);   //.Parse methode wird in Cosole genutzt um wert der Variable umzuwandeln
+
+            // Stringinterpolaboration Datentypen der Variablen werden in String Datentyp umgewandelt da die Console. Klasse nur  strings weitergeben kann.
+            Console.WriteLine($"Du bist also {name} und bist also {alter}Jahre alt.\n Freut mich deine Bekanntschaft zu machen.");
+
+            Console.Write("PW eingeben: ");
+            string pw = "12456789";
+            Console.ReadLine();
+            while (pw == "123456789")
+            {
+
+            }
+            if (alter >= 18)
+            {
+                Console.WriteLine("Hallo, " + name + "! Du darfst eintreten.");
+            }
+            else
+            {
+                Console.WriteLine("Hallo, " + name + "! Du kummst hier ned rein.");
+            }
+
+        }
+    }
+}
 
