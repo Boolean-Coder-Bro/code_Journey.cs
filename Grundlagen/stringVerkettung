@@ -1,1 +1,27 @@
+namespace ErstesProgramm
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+
+            int zahl1 = 12;
+            int zahl2 = 33;
+            int ergebnis = zahl1 + zahl2;
+
+            // Stringverkettung mit anderen Datentypen
+            Console.WriteLine("Ergebnis :" +  ergebnis);
+
+            string s1 = "Hallo ";
+            string s2 = "Welt!";
+            Console.WriteLine(s1 + s2);
+            // Console.Write fürht keinen Zeilenumbruch aus 
+            Console.Write("Hallo ");
+            Console.Write("Welt!");
+            // Read.Line(); hält Programm kurz an und nimmt Eingabe des Users entgegen
+
+        }
+    }
+}
 
