@@ -1,1 +1,53 @@
+namespace if_else // Imperatives Programieren von Oben nach Unten
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int zahl = 3;
+            if(zahl >= 5)
+            {
+                Console.WriteLine("Diese Bedingung trifft zu da zahl grrößer oder gleich 5.");
+            }
+            else 
+            {
+                Console.WriteLine("Diese Bedingung trifft zu da zahl kleiner 5.");
+            }
+            Console.WriteLine("Ende.");
+            Console.WriteLine();
 
+            int wert = 42;
+
+            if (wert >= 20)
+            {
+                Console.WriteLine("Der Wert ist größer 20");//Code Snippet cw dann Tap drücken gibt Console.WriteLine(); aus 
+            }
+            else if (wert >= 10)
+            {
+                Console.WriteLine("Der Wert ist größer 10");
+            }
+            else                                            //Die Bedingung die zuerst zutrifft wird zuerst ausgeführt die anderen werden ignoriert
+            {//Anweisungsblock anfang
+                Console.WriteLine("Der Wert ist kleiner 10.");
+            }//Anweisunsblock   ende
+
+            string s1 = "Hallo";
+
+            if (s1 == "Hallo")
+            {
+                Console.WriteLine("Ja, da steht Hallo.");
+            }
+            else if (s1 =="Servus")
+            {
+                Console.WriteLine("Das ist ein gescheiter Mann!");
+            }
+            else
+            {
+                Console.WriteLine("Nein, da steht nicht Hallo.");
+            }
+
+
+
+        }
+    }
+}
