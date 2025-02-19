@@ -1,1 +1,50 @@
+namespace Datentypen_Variablen
+{
+    internal class Program// ALles was Blau == Schlüsselwort
+    {
+        static void Main(string[] args) // Programm Einstiegspunkt Hier Startet das Projekt wird immer zuerst ausgeführt
+        {
 
+            // Variablen && Datentypen => Datenspeicher im RAM, benötigt Datentyp && Bezeichner
+
+            // Variablen-Deklaration 
+            int zahl;                       // int Ca 2,1 Millionen bis 2,1 Millionen
+            zahl = 42;                      // Initialisierung: Zuweisung erster Wert
+            zahl = 21;
+
+
+            // Numerische Datentypen - Ganzzahlen
+            int i;                      // 32-Bit Ganzzahl = 4 byte  damit kann ich Zahlen im Bereich von Ca 2,1 Millionen bis 2,1 Millionen für variable reservieren oder(||) der Variable Verweisen
+            short sh;                   // 16-Bit Ganzzahl = 2 byte 
+            long l;                     // 64-Bit Ganzzahl = 8 Byte 
+
+            // Numerische Datentypen - Fließkommazahlen || Gleitkommazahlen
+            float f;                    // 7-8 Stellen ALLER stellen 0,123456   oder 1234567 !!! ich kann also ungeachtet dessen ob vor und nach komma ob teilzahl doer Ganzzahl immer 7 Stellen
+            double d;                   // 15 Stellen 
+            decimal de;                 // 28 Stellen
+            // Ich muss dem Compiler Clip und Clar machen, um welchen Numerischen Datentyp/ Fließkommazahlen handelt
+            f = 42.35f;
+            d = 42.35d;
+            de = 42.35m;
+
+            // Zeichen && Zeichenketten
+            string  s1 = "Hallo Welt";  // "" Zeigt anfang und ende des Strings/ zeichenkette
+            char     A = 'A';           // '' Zeigt anfang und ende des einzelnen Literals characters 
+
+            // logischer Datentyp Boolscher Warheitswert
+            bool b1 = true;
+            b1      = false;
+
+            /* Bezeichner Regeln CamelCase =in C# Auf Gr. und Kl.schreibung achten! 
+             * Alle Buchstaben, 
+             * alle Ziffern, 
+             * _darf verwendet werden,
+             * darf nicht mit Ziffern beginnen.
+             * Variablen immer mit kleinbuchstaben Beginnen 
+             */
+            Console.WriteLine("Hello, World!");
+            Console.Write("Geht es dir heute gut?\n Antwortmöglichkeit Ja/Nein");
+            //Console.ReadLine();
+        }
+    }
+}
