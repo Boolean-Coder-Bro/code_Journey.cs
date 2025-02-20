@@ -1,0 +1,34 @@
+namespace zeichenVerkettung
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Zeichenverkettung
+            string vorname  = "Emre";
+            string nachname = "Oeztuerk";
+            // Variante 1
+            Console.WriteLine("Hallo,"+vorname +""+nachname+"! Schön, dass du da bist.");
+            // Variante 2 Platzhalter mit Indexen !!! {0},erste Variable   Das Komma gibt eine Abschnittsinstanz an womit man dann   
+            Console.WriteLine("Hallo, {0} {1}! Schön, dass du da bist.", vorname , nachname);
+            // Variante 3 Stringinterpolaration
+            Console.WriteLine($"Hallo, {vorname} {nachname}! Schön, dass du da bist.");
+            // Escape Sequenzen Backslash "\\t " Tabulator Einzug 
+            Console.WriteLine($"Name:\t\t {vorname} {nachname}");
+            Console.WriteLine("Geburtstag:\t xx.xx.xxxx");
+            // Escape Sequenzen Backslash "\\n " Zeilenumbruch  
+            Console.WriteLine($"Name:\t\t {vorname} {nachname}\\nGeburtstag:\t xx.xx.xxxx");
+            // Escape Sequenzen Backslash "\\ " Besonderheit Dateipfad als String anzeigen
+            Console.WriteLine("C:\\Test\\Datei.TXT");
+            // Escape Sequenz außer Kraft setzen  mit "@" sagt jz asu Backslah ist jz nur noch ein Zeichen!
+            Console.WriteLine(@"C:\Test\Datei.TXT");
+            // Escape Sequenzen Anführungszeichen"" durch \"xxxx\" in einem String anzeigbar machen  \"\" die Anführungszeichen werden nun als String angezeigt
+            Console.WriteLine("Pete\"Maverick\"Mitchell");
+
+            // Escape Sequenzen Backslash "\\r " Wagenrücklauf  
+
+
+
+        }
+    }
+}
