@@ -1,0 +1,42 @@
+namespace schleifen_Loop
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int zahl = 10;
+            // Kopfgesteuerte Schleife (while-Schleife)             Nur wenn Bedingung wahr ist wird sie ausgeführt-wird eventuell nie ausgeführt
+            while (zahl >= 0)
+            {
+                Console.WriteLine(zahl);
+                Thread.Sleep(1000); // Hält Code für angegebene Zeit () in Milisekunden an
+                zahl = zahl - 1;    // Bei jeder Iteration wird 
+            }
+
+            int wert = -8;
+            // Fußgesteuerte Schleife               Bedingung wird immer mindestend einmal ausgeführt 
+            do
+            {
+                Console.WriteLine(wert);
+                wert = wert - 1;
+            }
+            while (wert >= 0); /*                  Bedingungsprüfung ist NACH dem einmaligen ausführen der Code,
+                                *                  wird also mindestens einmal ausgeführt und je
+                                *                  nach Bedingung wird sie mehrmals ausgeführt 
+                                *                  Semikolon darf nicht vergessen werdne da anweisungsblock ja Hinter der while schleife ist*/
+
+            // Zählergesteuerte Schleife (for-Schleife)
+            /* 
+             * Der Anfangspunkt/ Zähler                                                 (int i =0;
+             * Der Endpunkt bis wann gezählt wird /Bedingung                                      i < 10;
+             * Schrittweite nach jeder Iteration wird dieser SChrittweite angewendet                     i= i + 1 )
+             * Wenn anzahl der durchläufe FIX sein soll dann nimmt man die for schleife
+             */
+            for (int i = 0; i >= 10; i= i+1)
+            {
+                Console.WriteLine(i);            
+            }
+        }
+
+    }
+}
