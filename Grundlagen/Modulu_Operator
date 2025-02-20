@@ -1,0 +1,23 @@
+namespace Modulu_Operator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int z1 = 15, z2 = 6;
+            int ergebnis = z1 % z1 2;
+
+            Console.WriteLine(ergebnis);
+            // 14/6 = 2 Rest 2
+            int zahl1 = 15;
+            int zahl2 = 5;
+
+            if (zahl1% zahl2 == 0) 
+            {
+                Console.WriteLine($"Die Zahl {zahl1} ist ganzzahlig durch {zahl2} teilbar.");
+            }
+
+
+        }
+    }
+}
