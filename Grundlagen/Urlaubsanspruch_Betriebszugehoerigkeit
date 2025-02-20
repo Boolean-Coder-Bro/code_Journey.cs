@@ -1,0 +1,62 @@
+using System;
+
+namespace Urlaubsanspruch_Betriebszugehoerigkeit
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int alter, urlaubsanspruch = 26, betriebArbeitsJahre;
+            bool istBehindert = false;
+            string eingabe;
+
+            // Altersabfrage mit Validierung
+            do
+            {
+                Console.Write("Bitte geben Sie Ihr Alter ein: ");
+            } while (!int.TryParse(Console.ReadLine(), out alter) || alter < 15);
+
+            // Behinderungsstatus abfragen
+            do
+            {
+                Console.Write("Sind Sie behindert? (ja/nein): ");
+                eingabe = Console.ReadLine().ToLower(); //Methode um String input immer in kl. schreibweise dem Computer  weiterzugeben
+                istBehindert = (eingabe == "ja");
+
+            } while (eingabe != "ja" && eingabe != "nein");
+
+            // Berechnung des Urlaubsanspruchs mit if-else if
+            if (alter < 18)
+            {
+                urlaubsanspruch = 30;
+            }
+            else if (alter > 55)
+            {
+                urlaubsanspruch = 28;
+            }
+            else
+            {
+                urlaubsanspruch = 26;
+            }
+
+            if (istBehindert)
+            {
+                urlaubsanspruch += 5;
+            }
+
+            // Betriebszugehörigkeit abfragen mit Validierung
+            do
+            {
+                Console.Write("Bitte geben Sie Ihre Betriebszugehörigkeit in Jahren ein: ");
+            } while (!int.TryParse(Console.ReadLine(), out betriebArbeitsJahre) || betriebArbeitsJahre < 0);
+
+            if (betriebArbeitsJahre > 10)
+            {
+                urlaubsanspruch += 2;
+            }
+
+            // Ausgabe
+            Console.WriteLine($"Sie sind {alter} Jahre alt und haben einen Urlaubsanspruch von {urlaubsanspruch} Tagen.");
+        }
+    }
+}
