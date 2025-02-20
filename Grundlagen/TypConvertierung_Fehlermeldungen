@@ -1,0 +1,33 @@
+namespace TypConvertierung
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Variablen
+            int alter;
+            bool check; 
+            //Eingabe       
+            do
+            {
+                // Wird mindestend EINMAL ausgeführt und solange bis check Bedingung nicht false ist da wir bool check; geschrieben haben ist check== false  dann True ^^
+                Console.WriteLine("Bitte geben sie Ihr Alter ein: ");
+                check=int.TryParse(Console.ReadLine(), out alter);
+                // Falls Fehleingabe dann 
+                if (check== false) 
+                {
+                    Console.WriteLine("Dow-Error sie müssen eine Zahl eingeben!");
+                }
+            }
+            while (check == false);
+            // Ausgabe
+            Console.WriteLine($"Sie sind {alter} Jahre alt.");
+        }/* Erklärung
+          * Wenn der Anwender mist eingegeben hat kann man Ihn auffordern das richtige einzugeben deshalb schreiben wir diese Code Zeile als do while schleife !
+          * int.TryParse(Console.ReadLine(), out alter);
+          * Falls vom USer ein falscher Wert eingegeben wurde dann wird der default wert von int alter ausgegeben für ein int ist dies immer die 0
+          */
+
+
+    }
+}
