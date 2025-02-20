@@ -12,7 +12,7 @@ namespace TypConvertierung
             {
                 // Wird mindestend EINMAL ausgeführt und solange bis check Bedingung nicht false ist da wir bool check; geschrieben haben ist check== false  dann True ^^
                 Console.WriteLine("Bitte geben sie Ihr Alter ein: ");
-                check=int.TryParse(Console.ReadLine(), out alter);
+                check=int.TryParse(Console.ReadLine(), out alter); // 
                 // Falls Fehleingabe dann 
                 if (check== false) 
                 {
@@ -24,7 +24,9 @@ namespace TypConvertierung
             Console.WriteLine($"Sie sind {alter} Jahre alt.");
         }/* Erklärung
           * Wenn der Anwender mist eingegeben hat kann man Ihn auffordern das richtige einzugeben deshalb schreiben wir diese Code Zeile als do while schleife !
-          * int.TryParse(Console.ReadLine(), out alter);
+          * int.TryParse(Console.ReadLine(), out alter);  
+          * TryParse Convertiert die User eingabe von Console.ReadLinevor  dem" . "vorstehenden Datentyp " , "gibt diesen Convertierten Inhalt dann den Ausgabeparameter an also an out alter
+          * out alter ist unser Ausgabe Parameter    
           * Falls vom USer ein falscher Wert eingegeben wurde dann wird der default wert von int alter ausgegeben für ein int ist dies immer die 0
           */
 
