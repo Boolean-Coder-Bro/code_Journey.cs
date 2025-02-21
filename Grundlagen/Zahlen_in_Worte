@@ -1,0 +1,65 @@
+namespace Zahlen_in_Worte
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Notiz an mich selsbt ich sollte anfangs ALLES EASY CODEN
+            int eingabe;
+            bool eingabe_Zahl;
+            
+            // Unsere "Arrays" Listen die nur einen Wert haben können! werden in indexe sortiert wie Strings und man kann sie dann so aufrufen 
+            string[] zahl_Einstellig =  { "", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun" };
+            string[] zahl_Zweistellig = { "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn" };
+            string[] zahl_Dreistellig = { "", "", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig", "achtzig", "neunzig" };
+            // da dass zu viele zum Aufschreiben sind  wird der Rest  über Bedingungen ermittelt Zahlen zwischen 10 und 19 sowie 1 bis 9 werden direkt über entsprechende Arrays ausgegeben
+            string Zahlen_in_Worte = ""; 
+            Console.Write("Geben sie eine Zahl zwischen 1-999 an:");
+            eingabe_Zahl = int.TryParse(Console.ReadLine(),out eingabe);
+            int originalZahl = eingabe;
+
+            if (eingabe_Zahl && eingabe>=1 && eingabe <= 999) 
+            {
+                if (eingabe >= 100)  // Wenn Eingabe gr 100 dann:
+                {
+                    int hunderter = eingabe / 100;//teile sie durch 100
+                    // Logik Wenn Eingabe/ 100  ==1 dann "einhundert" : Oder Wenn zahl_Einstellig[hunderter] dann + "hundert"
+                    Zahlen_in_Worte += hunderter == 1 ? "einhundert" : zahl_Einstellig[hunderter] +"hundert";
+                    eingabe %= 100;
+                }
+                if(eingabe >= 20) //WENN eingabe höher gleich 20 dann  // Logik zum kobinieren von 2 stelligen Zahlen ab 20
+                {
+                    int zehner = eingabe / 10; // teile sie durch 10
+                    int einser = eingabe % 10; // Restwert ist Einstellige Zahl
+                    if (einser > 0) // Mein fehler war das  Nur die erste stelle dann Verarbeitet wurde durch diese Bedingung stelle ich sicher das selsbt anch eintreffen der ersten klausel ALLE ANDEREN Bedingungen Geprüft werden 
+                    {
+                        Zahlen_in_Worte += zahl_Einstellig[einser] + "und" + zahl_Dreistellig[zehner];//Werte Zehner + Einer werden kombiniert
+                    }
+                    else
+                    {
+                        Zahlen_in_Worte += zahl_Dreistellig[zehner];
+                    }
+                        
+                }
+                else if (eingabe >= 10) //für Zahlen zwischen 10 und 19 oder  && eingabe <= 19?
+                {
+                    Zahlen_in_Worte += zahl_Zweistellig[eingabe - 10];
+                }
+                else if (eingabe > 0) // Zahlen zwischen 1 und 9
+                {
+                    Zahlen_in_Worte += zahl_Einstellig[eingabe];
+                }
+                Console.WriteLine(@$"
+                            Ihre Zahl {originalZahl}
+                            Die Zahl wie sie gesprochen wird {Zahlen_in_Worte}                       
+                            ");
+            }
+            else 
+            {
+                Console.WriteLine("Eingabe Fehler: Bitte eine gültige und Ganze Zahl eingeben.");
+            }
+
+            
+        }
+    }
+}
