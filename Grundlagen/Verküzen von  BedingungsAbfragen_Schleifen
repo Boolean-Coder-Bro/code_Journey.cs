@@ -1,0 +1,74 @@
+namespace Schaltjahr_Console_Anwendung
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+            while (true)
+            {
+                Console.WriteLine("Geben Sie ein Jahr ein (oder 'exit' zum Beenden):");
+                string eingabe = Console.ReadLine();
+
+                if (eingabe.ToLower() == "exit")
+                    break;
+
+                if (int.TryParse(eingabe, out int jahr))
+                {
+                    if ((jahr % 4 == 0 && jahr % 100 != 0) || (jahr % 400 == 0))   
+                        /* Bedingung : Wenn Jahr einen Modulus also Restwert von 4 hat  == 0 also Schaltjahr 
+                        * UND
+                        * Wenn Jahr gleichzeitig einen Modulus von 100 Hat und != 0 also nciht ohne Restwert Teilbar dann ist  Jahr kein Schaltjahr
+                        * Die Bedingung && jahr % 100 != 0 sorgt also dafür, dass Jahre wie 1900 kein Schaltjahr sind.                                                                                    
+                        * Aber wenn ein Jahr durch 400 teilbar ist, dann ist es trotzdem ein Schaltjahr (wie 2000).
+                        * dann führe den Codeblcok aus  
+                        * oder  
+                        * Wenn es zusätzlich durch 400 teilbar ist, dann ist es doch ein Schaltjahr.*/
+                    {
+                        Console.WriteLine($"{jahr} ist ein Schaltjahr!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{jahr} ist kein Schaltjahr.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine gültige Jahreszahl ein.");
+                }
+
+                //Variante 2
+                
+                
+                bool schaltjahr;
+                Console.WriteLine("Geben Sie ein Jahr ein (oder 'exit' zum Beenden):");
+                string eingabe_Variante2 = Console.ReadLine();
+
+                if (eingabe_Variante2.ToLower() == "exit")
+                    break;
+
+                if (int.TryParse(eingabe_Variante2, out int jahr_Variante2))
+                {
+                    schaltjahr = (jahr_Variante2 % 4 == 0 && jahr_Variante2 % 100 != 0 || jahr_Variante2 % 400 == 0) ? true : false;
+                    if (schaltjahr)
+                    /* Bedingung : Wenn Jahr einen Modulus also Restwert von 4 hat  == 0 also Schaltjahr 
+                    * UND
+                    * Wenn Jahr gleichzeitig einen Modulus von 100 Hat und != 0 also nciht ohne Restwert Teilbar dann ist  Jahr kein Schaltjahr
+                    * Die Bedingung && jahr % 100 != 0 sorgt also dafür, dass Jahre wie 1900 kein Schaltjahr sind.                                                                                    
+                    * Aber wenn ein Jahr durch 400 teilbar ist, dann ist es trotzdem ein Schaltjahr (wie 2000).
+                    * dann führe den Codeblcok aus  
+                    * oder  
+                    * Wenn es zusätzlich durch 400 teilbar ist, dann ist es doch ein Schaltjahr.*/
+                    {
+                        Console.WriteLine($"{jahr} ist ein Schaltjahr!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{jahr} ist kein Schaltjahr.");
+                    }
+                }              
+                Console.WriteLine((jahr % 4 == 0 && jahr % 100 != 0) || (jahr % 400 == 0) ? "Schaltjahr" : "Kein Schaltjahr");
+            }
+        }
+    }
+}
