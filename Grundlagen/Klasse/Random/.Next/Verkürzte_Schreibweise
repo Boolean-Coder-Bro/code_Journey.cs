@@ -1,0 +1,41 @@
+namespace spiel_First
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            static bool unmoeglich_Modus()
+            {
+                Console.WriteLine("Uenmoeglich Modus: Nur fuer verrueckte (y/n)");
+                return Console.ReadLine().ToLower() == "y";
+            }
+            /*Ohne die methode Next aus der Random Klasse oder Objekt ?  nix möglich
+            * Methode .Next(1,unmoeglich_Modus() ? 1001 : 101 ) nimmt 2 Parameter an die Minimale Zahl die zufällig generiert werden kann von 1
+            * und die Maximale Zahl die generiert werden kann  bei meinem code hab ich eine Wahrheitsabfrage ? Wenn ja  1001 : Wenn nein 101) als zufällig generierbarer maximalparameter
+            * die Methode unmoeglich_Modus und die Variable int ziel = mit zugewiesner Nw Random.Next(1,unmoeglich_Modus ? 1001 : 101), nähe = -1,versuche =0;   wobei ? : für warheitsabfragen stehen  und 
+            * sich hier zwsichen 2 parametern entscheiden werden kann
+            * ist eigentlich das Hier ausgeschrieben:
+                Console.WriteLine("Unmöglich Modus: Nur für Verrückte (y/n)");
+                bool unmoeglich_Modus = Console.ReadLine().ToLower() == "y";
+
+                int max = unmoeglich_Modus ? 1000 : 100;
+                int target = new Random().Next(1, max + 1);
+                int prev = -1, attempts = 0;
+            */
+            int ziel = new Random().Next(1, unmoeglich_Modus() ? 1001 : 101), nähe = -1, versuche = 0;
+            while (true)// Main Schleife die sich solange wiederholt bis  |  if (geraten == ziel) break;
+            {
+                Console.WriteLine("Erate die Zahl:");
+                int geraten = int.Parse(Console.ReadLine());    //Logik die str input von Console.ReadLine in INt umwandelt
+                versuche++;                                     //Jeder Druchgang erhöht die Zahl der Versuche um 1
+                if (geraten == ziel) break;                     // Falls erratene Zahl == Ziel Zahl dann wird schleife unterbrochen
+                // Math.Abs Funktion aus MAth klasse die den Absoluten Wert einer Zahl angibt !! also den Wahren wert einer Zahl 
+                Console.WriteLine(Math.Abs(ziel - geraten) < Math.Abs(ziel - nähe) ? "Wärmer!" : "Kälter!"); // Ausgabe mit integrierter verkürzter Wahrheitslogik
+                nähe = geraten;
+            }
+            Console.WriteLine($"Du hast in \"nur\" {versuche} Versuchen gewonnen!");
+        }
+
+    }
+}
+
